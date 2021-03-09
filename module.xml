@@ -1,0 +1,24 @@
+<module>
+	<rawname>phonemiddleware</rawname>
+	<name>Phone MiddleWare</name>
+	<version>1.0.1</version>
+	<publisher>Massi-X</publisher>
+	<license>Multiple</license>
+	<licenselink>https://github.com/Massi-X/freepbx-phonemiddleware#license</licenselink>
+	<category>Applications</category>
+	<menuitems>
+		<phonemiddleware>Phone MiddleWare</phonemiddleware>
+	</menuitems>
+	<changelog>
+		*1.0.1*  Fixed licensing
+		*1.0.0*  First release
+		</changelog>
+	<depends>
+		<version>ge 2.11</version>
+		<module>superfecta ge2.11</module>
+	</depends>
+	<depends>
+		<version>0.0.4</version>
+		<module>outcnam</module>
+	</depends>
+</module>
