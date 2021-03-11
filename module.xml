@@ -3,13 +3,14 @@
 	<name>Phone MiddleWare</name>
 	<version>1.0.1</version>
 	<publisher>Massi-X</publisher>
-	<license>Multiple</license>
+	<license>Prosperity 3</license>
 	<licenselink>https://github.com/Massi-X/freepbx-phonemiddleware#license</licenselink>
 	<category>Applications</category>
 	<menuitems>
 		<phonemiddleware>Phone MiddleWare</phonemiddleware>
 	</menuitems>
 	<changelog>
+		*1.0.2*  Fixed licensing (again...)
 		*1.0.1*  Fixed licensing
 		*1.0.0*  First release
 		</changelog>
