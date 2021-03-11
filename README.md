@@ -49,7 +49,7 @@ _**Enable outbound CNAM:**_
 - If a vcard number field is empty, it won't be displayed at all (not an issue)
 
 ## LICENSE:
-`SPDX-License-Identifier: GPL-3.0-or-later AND The-Prosperity-Public-License-3.0.0`<br>
+`SPDX-License-Identifier: The-Prosperity-Public-License-3.0.0`<br>
 This work is licensed under The Prosperity Public License 3.0.0.<br>
 You have to agree if you use this module.<br>
 In short this means: You can't use this lib for commercial use without clear agreements with the author but you can freely use it for personal use.<br>
