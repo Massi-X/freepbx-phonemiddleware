@@ -1,7 +1,7 @@
 <module>
 	<rawname>phonemiddleware</rawname>
 	<name>Phone MiddleWare</name>
-	<version>1.0.2</version>
+	<version>1.0.3</version>
 	<publisher>Massi-X</publisher>
 	<license>Prosperity 3</license>
 	<licenselink>https://github.com/Massi-X/freepbx-phonemiddleware#license</licenselink>
@@ -10,6 +10,7 @@
 		<phonemiddleware>Phone MiddleWare</phonemiddleware>
 	</menuitems>
 	<changelog>
+		*1.0.3*  Fixed preference lost after update, added license in the module page, added donation links
 		*1.0.2*  Fixed licensing (again...)
 		*1.0.1*  Fixed licensing
 		*1.0.0*  First release

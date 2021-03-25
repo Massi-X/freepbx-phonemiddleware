@@ -5,7 +5,7 @@ $successUpdate = true;
 
 //if submitting form, update database
 if(isset($_POST['submit'])) {
-	unset($_POST['submit']); //delete submit button name form the config
+	unset($_POST['submit']); //delete submit button name from the config
 	$successUpdate = phoneMiddleware_updateConfig($_POST);
 }
 
@@ -19,21 +19,20 @@ if(!$config) {
 	);
 }
 $origDir = dirname(__FILE__).'/module';
-$wwwDir = $amp_conf['AMPWEBROOT'].'/phoneMiddleware';
 $baseUrl = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http")."://$_SERVER[HTTP_HOST]/";
 $phonebookInfoLink = $baseUrl."phoneMiddleware/carddavtoXML.php";
 
 //reinstall www folder if requested
-if(isset($_POST['reinstall']) || !file_exists($wwwDir)) {
+if(isset($_POST['reinstall']) || !file_exists(WWW_MODULE_DIR)) {
 	try {
-		if(!phoneMiddleware_deleteDir($wwwDir))
+		if(file_exists(WWW_MODULE_DIR) && !phoneMiddleware_deleteDir(WWW_MODULE_DIR))
 			echo '<div class="alert alert-danger" role="alert">Unable to delete www module folder. Make sure the module has read/write permissions.</div>';
 	}
 	catch (InvalidArgumentException $e) {
 		//The folder isn't there. Doesn't matter
 	}
-	if(phoneMiddleware_oneTimeInit($origDir, $wwwDir))
-		echo '<div class="alert alert-warning" role="alert">Installation successful. The module is now ready to use.</div>';
+	if(phoneMiddleware_oneTimeInit($origDir, WWW_MODULE_DIR) && phoneMiddleware_updateConfig($config))
+			echo '<div class="alert alert-warning" role="alert">Installation successful. The module is now ready to use.</div>';
 	else
 		echo '<div class="alert alert-danger" role="alert">Failed to initialize working directory. The module won\'t work. Please make sure you have access to the root PHP folder.</div>';
 }
@@ -207,7 +206,17 @@ if (phoneMiddleware_checkUpdate())
 	</form>
 </div>
 
-<p style="text-align: center; width: 100%; font-size: 11px; font-weight: bold;">Module version: <?php echo $version; ?></p>
+<div class="alert alert-warning" role="alert">
+	<p>If you like my work and you want to donate you can do it here:</p>
+	<p>Donate to my PayPal address: <a href="https://www.paypal.com/donate?hosted_button_id=JG8QUZPEH3KBG" rel="nofollow" target="_blank"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" alt="paypal" style="max-width:100%;"></a></p>
+	<p>Bitcoin: 1Pig6XJxXGBj1v3r6uLrFUSHwyX8GPopRs</p>
+	<p>Monero: 89qdmpDsMm9MUvpsG69hbRMcGWeG2D26BdATw1iXXZwi8DqSEstJGcWNkenrXtThCAAJTpjkUNtZuQvxK1N5xSyb18eXzPD</p>
+	<br>
+	<p>Thank you!</p>
+</div>
+
+<p style="text-align: center; width: 100%; font-size: 11px; font-weight: bold;">Module version: <?php echo $version; ?> - Licensed under The Prosperity Public License 3.0.0</p>
+<p style="text-align: center; width: 100%; font-size: 11px;">Makes use of the following libraries: <a href="https://github.com/christian-putzke/CardDAV-PHP/">Carddav-PHP</a> - <a href="https://github.com/nuovo/vCard-parser/">vCard-parser</a> - <a href="https://github.com/giggsey/libphonenumber-for-php/">libphonenumber for PHP</a> - <a href="https://github.com/composer/composer/">Composer</a></p>
 
 <div id="infoPopup" title="Configuration Help" style="display: none;">
 	<p style="color: #f44336;"><b>NOTE:</b> ALL LINKS ARE CASE SENSITIVE</p>

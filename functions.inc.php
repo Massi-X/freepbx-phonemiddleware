@@ -2,10 +2,12 @@
 //deny access for all the functions below
 if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
+define('WWW_MODULE_DIR', $amp_conf['AMPWEBROOT'].'/phoneMiddleware');
+
 //check for settings and return
 function phoneMiddleware_readConfig() {
 	try {
-		return parse_ini_file(dirname(__FILE__).'/config.ini');
+		return parse_ini_file(WWW_MODULE_DIR.'/config.ini.php');
 	}
 	catch(Exception $e) {
 		return false;
@@ -14,8 +16,8 @@ function phoneMiddleware_readConfig() {
 
 //store settings
 function phoneMiddleware_updateConfig($assoc_arr, $has_sections = FALSE) {
-	$path = dirname(__FILE__).'/config.ini';
-  $content = "";
+	$path = WWW_MODULE_DIR.'/config.ini.php';
+  $content = ";<?php die(); ?>\n";
   if ($has_sections) {
     foreach ($assoc_arr as $key=>$elem) {
       $content .= "[".$key."]\n";

@@ -1,14 +1,11 @@
 Uninstalling freepbx-Phonemiddleware<br>
 <?php
 //delete config file and www folder
-if(!unlink(dirname(__FILE__).'/config.ini'))
-	echo 'Unable to delete config.ini file.<br>';
-
 try {
 	if(!deleteDir($_SERVER['DOCUMENT_ROOT'].'/phoneMiddleware'))
 		echo 'Unable to delete www module folder.<br>';
 	if(!deleteDir(sys_get_temp_dir().'/phonemiddleware'))
-		echo 'Unable to delete cache folder.';
+		echo 'Unable to delete cache folder (will get deleted after a reboot, no worry).';
 }
 catch (Exception $e) {
 	//ignored
