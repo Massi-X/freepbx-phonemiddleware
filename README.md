@@ -19,7 +19,7 @@ Donate to PayPal: [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donat
 - [ ] Encrypt data in some way?
 
 ## BUGS:
-- [ ] Settings get lost with each update
+None as of now
 
 ## USAGE:
 1. Upload the zip (find it [here](https://github.com/Massi-X/freepbx-phonemiddleware/releases)) in "Module Admin" on your FreePBX station and install it
